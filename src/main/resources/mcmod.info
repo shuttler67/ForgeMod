@@ -1,0 +1,21 @@
+[
+{
+    "modid": "circuitry",
+    "name": "Circuitry",
+    "description": "An Incomplete Mod about circuits!  :D",
+    "version": "1.0",
+    "mcversion": "1.7.10",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+        "shuttler67"
+    ],
+    "credits": "To Direwolf20 and Pahimar who got me into coding and modding",
+    "logoFile": "",
+    "screenshots": [
+    ],
+    "parent": "",
+    "dependencies": [
+    ]
+}
+]
