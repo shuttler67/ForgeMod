@@ -17,6 +17,7 @@ public class ConfigurationHandler
         if (configuration == null)
         {
             configuration = new Configuration(configFile);
+            loadConfiguration();
         }
     }
 
@@ -25,32 +26,20 @@ public class ConfigurationHandler
     {
         if (event.modID.equalsIgnoreCase((Reference.MOD_ID)))
         {
-            //Resync configs
             loadConfiguration();
         }
     }
 
-    public void  loadConfiguration()
+    private static void loadConfiguration()
     {
-        try
-        {
-            // Load the config file
-            configuration.load();
 
-            // Read in properties from config file
-            testValue = configuration.getBoolean(Configuration.CATEGORY_GENERAL, "configValue", true, "This is an example config");
-        }
-        catch (Exception e)
+        testValue = configuration.getBoolean("configValue", Configuration.CATEGORY_GENERAL, false, "This is an example config");
+
+        // Save the config file
+        if (configuration.hasChanged())
         {
-            // Log the exception
+            configuration.save();
         }
-        finally
-        {
-            // Save the config file
-            if (configuration.hasChanged())
-            {
-                configuration.save();
-            }
-        }
+
     }
 }

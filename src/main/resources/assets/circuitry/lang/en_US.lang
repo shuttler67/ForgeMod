@@ -1,0 +1,3 @@
+item.circuitry:golden_circuit.name=Golden Circuit
+item.circuitry:diamond_circuit.name=Diamond Circuit
+itemGroup.circuitry=Circuitry
