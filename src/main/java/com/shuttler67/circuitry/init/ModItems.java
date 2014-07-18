@@ -1,21 +1,30 @@
 package com.shuttler67.circuitry.init;
 
+import com.shuttler67.circuitry.block.BlockCRCT;
+import com.shuttler67.circuitry.block.BlockPanel;
 import com.shuttler67.circuitry.item.ItemCRCT;
 import com.shuttler67.circuitry.item.ItemDiamondCircuit;
 import com.shuttler67.circuitry.item.ItemGoldenCircuit;
+import com.shuttler67.circuitry.item.ItemIronCircuit;
 import com.shuttler67.circuitry.reference.Reference;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 @GameRegistry.ObjectHolder(Reference.MOD_ID)
 public class ModItems {
 
+    public static final ItemCRCT iron_circuit = new ItemIronCircuit();
     public static final ItemCRCT golden_circuit = new ItemGoldenCircuit();
     public static final ItemCRCT diamond_circuit = new ItemDiamondCircuit();
+
+    public static final BlockCRCT panel = new BlockPanel();
 
     public static void init()
     {
         GameRegistry.registerItem(golden_circuit, "golden_circuit");
         GameRegistry.registerItem(diamond_circuit, "diamond_circuit");
+        GameRegistry.registerItem(iron_circuit, "iron_circuit");
+
+        GameRegistry.registerBlock(panel, "panel");
     }
 
 }

@@ -1,3 +1,5 @@
 item.circuitry:golden_circuit.name=Golden Circuit
 item.circuitry:diamond_circuit.name=Diamond Circuit
+item.circuitry:iron_circuit.name=Iron Circuit
+tile.circuitry:panel.name=Panel
 itemGroup.circuitry=Circuitry
