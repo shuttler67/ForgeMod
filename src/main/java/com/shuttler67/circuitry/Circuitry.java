@@ -3,6 +3,7 @@ package com.shuttler67.circuitry;
 import com.shuttler67.circuitry.handler.ConfigurationHandler;
 import com.shuttler67.circuitry.init.ModBlocks;
 import com.shuttler67.circuitry.init.ModItems;
+import com.shuttler67.circuitry.init.Recipes;
 import com.shuttler67.circuitry.proxy.IProxy;
 import com.shuttler67.circuitry.reference.Reference;
 import com.shuttler67.circuitry.utility.LogHelper;
@@ -41,6 +42,7 @@ public class Circuitry
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
+        Recipes.init();
         LogHelper.info("Initialization Complete!");
     }
 
