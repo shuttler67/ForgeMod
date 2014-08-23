@@ -1,5 +1,6 @@
 package com.shuttler67.circuitry;
 
+import com.shuttler67.circuitry.client.handler.KeyInputEventHandler;
 import com.shuttler67.circuitry.handler.ConfigurationHandler;
 import com.shuttler67.circuitry.init.ModBlocks;
 import com.shuttler67.circuitry.init.ModItems;
@@ -32,6 +33,8 @@ public class Circuitry
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
         FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
 
+        proxy.registerKeyBindings();
+
         ModItems.init();
 
         ModBlocks.init();
@@ -42,6 +45,8 @@ public class Circuitry
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
+        FMLCommonHandler.instance().bus().register(new KeyInputEventHandler());
+
         Recipes.init();
         LogHelper.info("Initialization Complete!");
     }

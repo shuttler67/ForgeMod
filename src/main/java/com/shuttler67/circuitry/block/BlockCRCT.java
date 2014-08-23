@@ -19,6 +19,7 @@ public class BlockCRCT extends Block
     public BlockCRCT()
     {
         super(Material.rock);
+        this.setCreativeTab(CreativeTabCRCT.CRCT_TAB);
     }
 
     @Override
