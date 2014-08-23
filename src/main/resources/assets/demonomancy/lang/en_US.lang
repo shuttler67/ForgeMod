@@ -1,0 +1,15 @@
+
+# Keys
+keys.demonomancy.category=Demonomancy
+keys.demonomancy.demonify=Demonify
+
+# Creative Tabs
+itemGroup.demonomancy=Demonomancy
+
+# Items
+item.demonomancy:pentacle.name=Pentacle
+
+# Blocks
+tile.demonomancy:pentacle.name=Pentacle
+
+
