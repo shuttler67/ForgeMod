@@ -1,6 +1,5 @@
 package com.shuttler67.demonomancy.creativetab;
 
-import com.shuttler67.demonomancy.init.ModBlocks;
 import com.shuttler67.demonomancy.init.ModItems;
 import com.shuttler67.demonomancy.reference.Reference;
 import net.minecraft.creativetab.CreativeTabs;
@@ -13,7 +12,7 @@ public class CreativeTabDEMON
         @Override
         public Item getTabIconItem()
         {
-            return Item.getItemFromBlock(ModBlocks.pentacle);
+            return ModItems.itemDemon;
         }
     };
 

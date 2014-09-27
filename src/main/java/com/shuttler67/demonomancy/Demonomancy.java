@@ -1,19 +1,22 @@
 package com.shuttler67.demonomancy;
 
-import com.shuttler67.demonomancy.client.handler.KeyInputEventHandler;
 import com.shuttler67.demonomancy.handler.ConfigurationHandler;
 import com.shuttler67.demonomancy.init.ModBlocks;
 import com.shuttler67.demonomancy.init.ModItems;
 import com.shuttler67.demonomancy.init.Recipes;
+import com.shuttler67.demonomancy.network.MessagePentacleSync;
+import com.shuttler67.demonomancy.network.MessagePentacleSyncRequest;
 import com.shuttler67.demonomancy.proxy.IProxy;
 import com.shuttler67.demonomancy.reference.Reference;
 import com.shuttler67.demonomancy.utility.LogHelper;
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
+import cpw.mods.fml.relauncher.Side;
 
 import static cpw.mods.fml.common.Mod.EventHandler;
 
@@ -27,11 +30,17 @@ public class Demonomancy
     @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
     public static IProxy proxy;
 
+    public static SimpleNetworkWrapper network;
+
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+        network = NetworkRegistry.INSTANCE.newSimpleChannel("demonSH67");
+
+        network.registerMessage(MessagePentacleSync.Handler.class, MessagePentacleSync.class, 0, Side.CLIENT);
+        network.registerMessage(MessagePentacleSyncRequest.Handler.class, MessagePentacleSyncRequest.class, 1, Side.SERVER);
+
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
-        FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
 
         proxy.registerKeyBindings();
 
@@ -45,9 +54,17 @@ public class Demonomancy
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-        FMLCommonHandler.instance().bus().register(new KeyInputEventHandler());
+        // Initialize mod tile entities
+        proxy.registerTileEntities();
+
+        // Initialize custom rendering and pre-load textures (Client only)
+        proxy.initRenderingAndTextures();
+
+        // Register the Items Event Handler
+        proxy.registerEventHandlers();
 
         Recipes.init();
+
         LogHelper.info("Initialization Complete!");
     }
 

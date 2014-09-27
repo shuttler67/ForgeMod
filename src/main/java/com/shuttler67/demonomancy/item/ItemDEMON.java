@@ -1,6 +1,7 @@
 package com.shuttler67.demonomancy.item;
 
 import com.shuttler67.demonomancy.creativetab.CreativeTabDEMON;
+import com.shuttler67.demonomancy.reference.Names;
 import com.shuttler67.demonomancy.reference.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -14,6 +15,7 @@ public class ItemDEMON extends Item
     {
         super();
         this.setCreativeTab(CreativeTabDEMON.DEMON_TAB);
+        this.setUnlocalizedName(Names.Items.ITEM_DEMON);
         this.setMaxStackSize(1);
     }
 

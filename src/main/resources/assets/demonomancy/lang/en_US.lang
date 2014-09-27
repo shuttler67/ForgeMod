@@ -7,7 +7,8 @@ keys.demonomancy.demonify=Demonify
 itemGroup.demonomancy=Demonomancy
 
 # Items
-item.demonomancy:pentacle.name=Pentacle
+item.demonomancy:redChalk.name=Red Chalk
+item.demonomancy:obsidianTablet.name=Obsidian Tablet
 
 # Blocks
 tile.demonomancy:pentacle.name=Pentacle

@@ -19,7 +19,7 @@ apply plugin: 'forge'
 
 version = "1.7.10-1.0"
 group= "com.shuttler67.demonomancy" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "Circuitry"
+archivesBaseName = "Demonomancy"
 
 minecraft {
     version = "1.7.10-10.13.0.1186"

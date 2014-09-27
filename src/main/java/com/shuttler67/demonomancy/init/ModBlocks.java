@@ -1,6 +1,5 @@
 package com.shuttler67.demonomancy.init;
 
-import com.shuttler67.demonomancy.block.BlockDEMON;
 import com.shuttler67.demonomancy.block.BlockPentacle;
 import com.shuttler67.demonomancy.reference.Reference;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -8,7 +7,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 @GameRegistry.ObjectHolder(Reference.MOD_ID)
 public class ModBlocks
 {
-    public static final BlockDEMON pentacle = new BlockPentacle();
+    public static final BlockPentacle pentacle = new BlockPentacle();
 
     public static void init()
     {

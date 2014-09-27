@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 
 public class BlockDEMON extends Block
 {
+
     public BlockDEMON(Material material)
     {
         super(material);
